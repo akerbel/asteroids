@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &409630959008771198
+--- !u!1 &6154266067710994935
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 409630959008771192}
-  - component: {fileID: 409630959008771193}
-  - component: {fileID: -4667069946965498515}
-  - component: {fileID: 1133860472}
-  - component: {fileID: -6636591715906528969}
-  - component: {fileID: 2937547894081933135}
+  - component: {fileID: 8934981278045110872}
+  - component: {fileID: 1700664651438183080}
+  - component: {fileID: 8000555771124828015}
+  - component: {fileID: 2275053319504986552}
+  - component: {fileID: 6002077189901773291}
+  - component: {fileID: 5684568172628505708}
   m_Layer: 0
-  m_Name: Asteroid_1_big
-  m_TagString: Asteroid
+  m_Name: Asteroid_1_middle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &409630959008771192
+--- !u!4 &8934981278045110872
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409630959008771198}
+  m_GameObject: {fileID: 6154266067710994935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.345876, y: 6.1879416, z: 0}
+  m_LocalPosition: {x: -13.66992, y: -0.5324114, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &409630959008771193
+--- !u!212 &1700664651438183080
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409630959008771198}
+  m_GameObject: {fileID: 6154266067710994935}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,24 +74,52 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 62ed7dabe1fda394ebb9ddd97e07559a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 980048a29e1c34c40adea1234dfca7fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
---- !u!58 &-4667069946965498515
+  m_SpriteSortPoint: 0
+--- !u!114 &8000555771124828015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154266067710994935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dabf4e226e794ab0ad1381a993c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  direction: 0
+  childAsteroidPrefab: {fileID: 0}
+  childAsteroidCount: 2
+--- !u!114 &2275053319504986552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154266067710994935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4506c405227afc443b256bc4c1fe9842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6002077189901773291
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409630959008771198}
+  m_GameObject: {fileID: 6154266067710994935}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -100,15 +128,15 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!50 &1133860472
+  m_Radius: 0.33333334
+--- !u!50 &5684568172628505708
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409630959008771198}
+  m_GameObject: {fileID: 6154266067710994935}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -122,32 +150,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6636591715906528969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409630959008771198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4506c405227afc443b256bc4c1fe9842, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2937547894081933135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409630959008771198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729dabf4e226e794ab0ad1381a993c60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  direction: 0
-  childAsteroidPrefab: {fileID: 6154266067710994935, guid: 67abfc48427f15d448317076cd6dcb84,
-    type: 3}
-  childAsteroidCount: 1

@@ -8,13 +8,11 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 120.0f;
 
     [SerializeField] private GameObject weaponPrefab;
-    private Moving Moving;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
-        Moving = GetComponent<Moving>();
     }
 
     void FixedUpdate()
@@ -31,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         float speed = Input.GetAxis("Vertical") * velocity;
-        Moving.Move(speed);
+        GetComponent<Moving>().Move(speed);
     }
 
     private void Rotate()
