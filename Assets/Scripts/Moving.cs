@@ -10,7 +10,7 @@ public class Moving : MonoBehaviour
     private Rigidbody2D rb2D;
 
     // Start is called before the first frame update
-    protected void Start()
+    void Start()
     {
         vector = new Vector2(0, 0);
         rb2D = GetComponent<Rigidbody2D>();
@@ -41,7 +41,7 @@ public class Moving : MonoBehaviour
         }
     }
 
-    protected void Update()
+    void Update()
     {
         sceenEdgeTeleport();
     }

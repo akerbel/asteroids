@@ -2,36 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Moving
+public class PlayerController : MonoBehaviour
 {
     public float velocity = 50.0f;
     public float rotateSpeed = 120.0f;
 
     [SerializeField] private GameObject weaponPrefab;
+    private Moving Moving;
 
     // Start is called before the first frame update
-    new void Start()
+    void Start()
     {
-        base.Start();
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        Moving = GetComponent<Moving>();
     }
 
     void FixedUpdate()
     {
-        this.Rotate();
-        this.Move();
+        Rotate();
+        Move();
     }
 
-    new void Update()
+    void Update()
     {
-        base.Update();
-        this.Shoot();
+        Shoot();
     }
 
-     private void Move()
-     {
+    private void Move()
+    {
         float speed = Input.GetAxis("Vertical") * velocity;
-        base.Move(speed);
+        Moving.Move(speed);
     }
 
     private void Rotate()

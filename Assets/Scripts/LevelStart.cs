@@ -25,8 +25,7 @@ public class LevelStart : MonoBehaviour
             GameObject asteroid = Instantiate(asteroidPrefab) as GameObject;
             asteroid.transform.position = new Vector2(posX, posY);
             
-            AsteroidMoving moving = asteroid.GetComponent<AsteroidMoving>();
-            moving.speed = speed;
+            asteroid.GetComponent<AsteroidController>().speed = speed;
             asteroid.transform.Rotate(0, 0, angle);
         }
     }
