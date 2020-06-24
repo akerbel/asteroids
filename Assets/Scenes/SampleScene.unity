@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 1847103543}
   - component: {fileID: 1847103544}
   - component: {fileID: 1847103542}
+  - component: {fileID: 1847103545}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -297,13 +298,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1847103539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46adc2ee4559a0a4c8cdd6057267d6cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4506c405227afc443b256bc4c1fe9842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 100
-  rotateSpeed: 120
-  weaponPrefab: {fileID: 5377364553267157970, guid: c98fdcdc8e040af498f9abb0a59f991a,
-    type: 3}
 --- !u!58 &1847103543
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -341,6 +338,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1847103545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847103539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46adc2ee4559a0a4c8cdd6057267d6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 200
+  rotateSpeed: 120
+  weaponPrefab: {fileID: 5377364553267157970, guid: c98fdcdc8e040af498f9abb0a59f991a,
+    type: 3}
 --- !u!1 &1916356403
 GameObject:
   m_ObjectHideFlags: 0

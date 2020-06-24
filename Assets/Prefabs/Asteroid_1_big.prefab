@@ -150,4 +150,4 @@ MonoBehaviour:
   direction: 0
   childAsteroidPrefab: {fileID: 6154266067710994935, guid: 67abfc48427f15d448317076cd6dcb84,
     type: 3}
-  childAsteroidCount: 1
+  childAsteroidCount: 2

@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelStart : MonoBehaviour
 {
     public int asteroidCount = 2;
-    public float minSpeed = 150.0f;
-    public float maxSpeed = 300.0f;
+    public float minSpeed = 1000.0f;
+    public float maxSpeed = 5000.0f;
 
     [SerializeField] private GameObject asteroidPrefab;
 

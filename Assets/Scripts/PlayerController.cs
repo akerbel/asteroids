@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float velocity = 50.0f;
+    public float velocity = 200.0f;
     public float rotateSpeed = 120.0f;
 
     [SerializeField] private GameObject weaponPrefab;

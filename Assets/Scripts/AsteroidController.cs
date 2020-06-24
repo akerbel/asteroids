@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidController : MonoBehaviour
 {
 
-    public float speed = 6.0f;
+    public float speed = 0.0f;
     public float direction = 0.0f;
 
     [SerializeField] private GameObject childAsteroidPrefab;
@@ -23,18 +23,22 @@ public class AsteroidController : MonoBehaviour
         BulletMoving movingObject = other.GetComponent<BulletMoving>();
 
         if (movingObject != null) {
-            Debug.Log("Hit!");
-            // @todo really destroy bullet
             Destroy(other.gameObject);
 
-            for (int i = 0; i < childAsteroidCount; i++) {
-                GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
-                childAsteroid.transform.position = transform.position;
-                childAsteroid.transform.rotation = transform.rotation;
-                childAsteroid.transform.Rotate(0, 0, Random.Range(0, 360));
-                childAsteroid.GetComponent<Moving>().Move(speed + 1000.0f);
-            }
+            float posX = transform.position.x;
+            float posY = transform.position.y;
             Destroy(gameObject);
+
+            if (childAsteroidCount != null) {
+                for (int i = 0; i < childAsteroidCount; i++) {
+                    GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
+                    childAsteroid.transform.position = new Vector2(posX + (i * 100), posY);
+                    childAsteroid.GetComponent<AsteroidController>().speed = speed + 1000.0f;
+                    childAsteroid.transform.Rotate(0, 0, Random.Range(0, 360));
+                    childAsteroid.GetComponent<Moving>().Move(speed + 1000.0f);
+                }
+            }
+
         }
     }
 
