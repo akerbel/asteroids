@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
-
-    public float speed = 0.0f;
     public float direction = 0.0f;
 
     [SerializeField] private GameObject childAsteroidPrefab;
@@ -15,7 +13,6 @@ public class AsteroidController : MonoBehaviour
     void Start()
     {
         transform.Rotate(0, 0, direction);
-        GetComponent<Moving>().Move(speed);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,10 +29,12 @@ public class AsteroidController : MonoBehaviour
             if (childAsteroidCount != null) {
                 for (int i = 0; i < childAsteroidCount; i++) {
                     GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
-                    childAsteroid.transform.position = new Vector2(posX + (i * 100), posY);
-                    childAsteroid.GetComponent<AsteroidController>().speed = speed + 1000.0f;
-                    childAsteroid.transform.Rotate(0, 0, Random.Range(0, 360));
-                    childAsteroid.GetComponent<Moving>().Move(speed + 1000.0f);
+                    childAsteroid.transform.position = new Vector2(posX + (i), posY);
+                    Vector2 vector = new Vector2(
+                        Random.Range(-500, 500),
+                        Random.Range(-500, 500)
+                    );
+                    childAsteroid.GetComponent<Rigidbody2D>().AddForce(vector);
                 }
             }
 

@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
         float speed = Input.GetAxis("Vertical") * velocity;
-        GetComponent<Moving>().Move(speed);
+        Vector2 vector = new Vector2(0, speed * Time.deltaTime);
+        vector = rb2D.GetRelativeVector(vector);
+        rb2D.AddForce(vector);
     }
 
     private void Rotate()

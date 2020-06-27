@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 409630959008771193}
   - component: {fileID: -4667069946965498515}
   - component: {fileID: 1133860472}
-  - component: {fileID: -6636591715906528969}
+  - component: {fileID: -5055755976192125299}
   - component: {fileID: 2937547894081933135}
   m_Layer: 0
   m_Name: Asteroid_1_big
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6636591715906528969
+--- !u!114 &-5055755976192125299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729dabf4e226e794ab0ad1381a993c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
   direction: 0
   childAsteroidPrefab: {fileID: 6154266067710994935, guid: 67abfc48427f15d448317076cd6dcb84,
     type: 3}
-  childAsteroidCount: 2
+  childAsteroidCount: 1

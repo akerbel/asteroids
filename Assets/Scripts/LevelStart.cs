@@ -5,8 +5,7 @@ using UnityEngine;
 public class LevelStart : MonoBehaviour
 {
     public int asteroidCount = 2;
-    public float minSpeed = 1000.0f;
-    public float maxSpeed = 5000.0f;
+    public float maxSpeed = 500.0f;
 
     [SerializeField] private GameObject asteroidPrefab;
 
@@ -17,7 +16,7 @@ public class LevelStart : MonoBehaviour
             float verticalSize = (float)(Camera.main.orthographicSize);
             float horizontalSize = (float)(verticalSize * Screen.width / Screen.height);
 
-            float speed = Random.Range(0, +maxSpeed);
+            float speed = Random.Range(0, maxSpeed);
             float angle = Random.Range(0, 360);
             float posY = Random.Range(-verticalSize, verticalSize);
             float posX = Random.Range(-horizontalSize, horizontalSize);
@@ -25,8 +24,11 @@ public class LevelStart : MonoBehaviour
             GameObject asteroid = Instantiate(asteroidPrefab) as GameObject;
             asteroid.transform.position = new Vector2(posX, posY);
             
-            asteroid.GetComponent<AsteroidController>().speed = speed;
             asteroid.transform.Rotate(0, 0, angle);
+            asteroid.GetComponent<Rigidbody2D>().AddForce(new Vector2(
+                Random.Range(-maxSpeed, maxSpeed),
+                Random.Range(-maxSpeed, maxSpeed)
+            ));
         }
     }
     

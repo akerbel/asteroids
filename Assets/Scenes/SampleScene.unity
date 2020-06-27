@@ -384,8 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidCount: 4
-  minSpeed: 1000
-  maxSpeed: 5000
+  maxSpeed: 500
   asteroidPrefab: {fileID: 409630959008771198, guid: 9be3c560d34899b4aacb8f569e1d49b2,
     type: 3}
 --- !u!4 &1916356405
