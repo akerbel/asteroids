@@ -20,13 +20,13 @@ public class AsteroidController : MonoBehaviour
         BulletMoving movingObject = other.GetComponent<BulletMoving>();
 
         if (movingObject != null) {
-            Destroy(other.gameObject);
+            StartCoroutine(movingObject.Hit());
 
             float posX = transform.position.x;
             float posY = transform.position.y;
-            Destroy(gameObject);
+            StartCoroutine(Hit());
 
-            if (childAsteroidCount != null) {
+            if (childAsteroidCount > 0) {
                 for (int i = 0; i < childAsteroidCount; i++) {
                     GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
                     childAsteroid.transform.position = new Vector2(posX + (i), posY);
@@ -39,6 +39,13 @@ public class AsteroidController : MonoBehaviour
             }
 
         }
+    }
+
+    IEnumerator Hit()
+    {
+        GetComponent<Animator>().SetBool("hit", true);
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 
 }

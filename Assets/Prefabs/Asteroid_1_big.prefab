@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1133860472}
   - component: {fileID: -5055755976192125299}
   - component: {fileID: 2937547894081933135}
+  - component: {fileID: 537706068}
   m_Layer: 0
   m_Name: Asteroid_1_big
   m_TagString: Asteroid
@@ -149,4 +150,23 @@ MonoBehaviour:
   direction: 0
   childAsteroidPrefab: {fileID: 6154266067710994935, guid: 67abfc48427f15d448317076cd6dcb84,
     type: 3}
-  childAsteroidCount: 1
+  childAsteroidCount: 0
+--- !u!95 &537706068
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409630959008771198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca56a1a4996fe6a43b02ef472522d325, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
