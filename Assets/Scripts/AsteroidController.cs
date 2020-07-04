@@ -9,10 +9,13 @@ public class AsteroidController : MonoBehaviour
     [SerializeField] private GameObject childAsteroidPrefab;
     public int childAsteroidCount = 2;
 
+    public float noCollisionTime = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(0, 0, direction);
+        StartCoroutine(NoCollision(noCollisionTime));
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +32,7 @@ public class AsteroidController : MonoBehaviour
             if (childAsteroidCount > 0) {
                 for (int i = 0; i < childAsteroidCount; i++) {
                     GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
-                    childAsteroid.transform.position = new Vector2(posX + (i), posY);
+                    childAsteroid.transform.position = new Vector2(posX, posY);
                     Vector2 vector = new Vector2(
                         Random.Range(-500, 500),
                         Random.Range(-500, 500)
@@ -37,7 +40,6 @@ public class AsteroidController : MonoBehaviour
                     childAsteroid.GetComponent<Rigidbody2D>().AddForce(vector);
                 }
             }
-
         }
     }
 
@@ -48,4 +50,11 @@ public class AsteroidController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public IEnumerator NoCollision(float time = 1.0f)
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.isTrigger = true;
+        yield return new WaitForSeconds(time);
+        collider.isTrigger = false;
+    }
 }
