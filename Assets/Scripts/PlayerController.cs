@@ -7,12 +7,17 @@ public class PlayerController : MonoBehaviour
     public float velocity = 200.0f;
     public float rotateSpeed = 120.0f;
 
+    private float speed = 0.0f;
+
     [SerializeField] private GameObject weaponPrefab;
+
+    [SerializeField] private ParticleSystem particalSystem;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        particalSystem.Stop();
     }
 
     void FixedUpdate()
@@ -29,8 +34,10 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
-        float speed = Input.GetAxis("Vertical") * velocity;
-        Vector2 vector = new Vector2(0, speed * Time.deltaTime);
+        float newSpeed = Input.GetAxis("Vertical") * velocity * Time.deltaTime;
+        EngineSparks(newSpeed);
+        speed = newSpeed;
+        Vector2 vector = new Vector2(0, speed);
         vector = rb2D.GetRelativeVector(vector);
         rb2D.AddForce(vector);
     }
@@ -46,10 +53,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            //print("space key was pressed");
             GameObject bullet = Instantiate(weaponPrefab) as GameObject;
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
+        }
+    }
+
+    // Generate engine sparcks in Particular System.
+    private void EngineSparks(float newSpeed) 
+    {
+        if ((newSpeed >= speed) && (speed != 0)) {
+            particalSystem.Emit((int)newSpeed);
         }
     }
 
@@ -57,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.tag == "Asteroid") {
             Debug.Log(collision.collider.name);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
