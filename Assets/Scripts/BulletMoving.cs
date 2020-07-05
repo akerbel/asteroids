@@ -38,11 +38,11 @@ public class BulletMoving : MonoBehaviour
         }
     }
 
-    public IEnumerator Hit()
+    public IEnumerator Hit(float time = 1.0f)
     {
         speed = 0f;
         animator.SetBool("hit", true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 72987894783498112}
   - component: {fileID: 4095204326286202741}
   - component: {fileID: 3010386026588753591}
+  - component: {fileID: 3778707201456725226}
   - component: {fileID: 72987896417664940}
   m_Layer: 0
   m_Name: Asteroid_1_middle
@@ -150,8 +151,20 @@ MonoBehaviour:
   direction: 0
   childAsteroidPrefab: {fileID: 0}
   childAsteroidCount: 0
-  isColliderEnabled: 1
   noCollisionTime: 1
+  active: 1
+--- !u!122 &3778707201456725226
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336647598822944134}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_Size: 0
 --- !u!95 &72987896417664940
 Animator:
   serializedVersion: 3

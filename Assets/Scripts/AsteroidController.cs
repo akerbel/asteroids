@@ -11,6 +11,8 @@ public class AsteroidController : MonoBehaviour
 
     public float noCollisionTime = 1.0f;
 
+    public bool active = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,30 +22,33 @@ public class AsteroidController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        BulletMoving movingObject = other.GetComponent<BulletMoving>();
+        if (active) {
+            BulletMoving movingObject = other.GetComponent<BulletMoving>();
 
-        if (movingObject != null) {
-            StartCoroutine(movingObject.Hit());
+            if (movingObject != null) {
+                StartCoroutine(movingObject.Hit(0));
 
-            float posX = transform.position.x;
-            float posY = transform.position.y;
-            StartCoroutine(Hit());
+                float posX = transform.position.x;
+                float posY = transform.position.y;
+                active = false;
+                StartCoroutine(Hit());
 
-            if (childAsteroidCount > 0) {
-                for (int i = 0; i < childAsteroidCount; i++) {
-                    GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
-                    childAsteroid.transform.position = new Vector2(posX, posY);
-                    Vector2 vector = new Vector2(
-                        Random.Range(-500, 500),
-                        Random.Range(-500, 500)
-                    );
-                    childAsteroid.GetComponent<Rigidbody2D>().AddForce(vector);
+                if (childAsteroidCount > 0) {
+                    for (int i = 0; i < childAsteroidCount; i++) {
+                        GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
+                        childAsteroid.transform.position = new Vector2(posX, posY);
+                        Vector2 vector = new Vector2(
+                            Random.Range(-500, 500),
+                            Random.Range(-500, 500)
+                        );
+                        childAsteroid.GetComponent<Rigidbody2D>().AddForce(vector);
+                    }
                 }
             }
         }
     }
 
-    IEnumerator Hit()
+    IEnumerator Hit(float time = 1.0f)
     {
         GetComponent<Animator>().SetBool("hit", true);
         yield return new WaitForSeconds(1);

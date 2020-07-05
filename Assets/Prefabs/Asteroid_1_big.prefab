@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1133860472}
   - component: {fileID: -5055755976192125299}
   - component: {fileID: 2937547894081933135}
+  - component: {fileID: -85112216589932766}
   - component: {fileID: 537706068}
   m_Layer: 0
   m_Name: Asteroid_1_big
@@ -151,8 +152,19 @@ MonoBehaviour:
   childAsteroidPrefab: {fileID: 336647598822944134, guid: 67abfc48427f15d448317076cd6dcb84,
     type: 3}
   childAsteroidCount: 2
-  isColliderEnabled: 1
   noCollisionTime: 1
+--- !u!122 &-85112216589932766
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409630959008771198}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_Size: 0
 --- !u!95 &537706068
 Animator:
   serializedVersion: 3
