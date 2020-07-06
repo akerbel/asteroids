@@ -433,8 +433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46adc2ee4559a0a4c8cdd6057267d6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 200
-  rotateSpeed: 120
+  velocity: 500
+  rotateSpeed: 150
   weaponPrefab: {fileID: 5377364553267157970, guid: c98fdcdc8e040af498f9abb0a59f991a,
     type: 3}
   particalSystem: {fileID: 1847103547}
@@ -5189,7 +5189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f83bcdad2092fe41968c041cc17d1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidCount: 4
+  asteroidCount: 2
   maxSpeed: 500
   asteroidPrefab: {fileID: 409630959008771198, guid: 9be3c560d34899b4aacb8f569e1d49b2,
     type: 3}

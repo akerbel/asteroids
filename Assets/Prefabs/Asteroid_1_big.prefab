@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  childAsteroidPrefab: {fileID: 336647598822944134, guid: 67abfc48427f15d448317076cd6dcb84,
+  childAsteroidPrefab: {fileID: 562087541922132023, guid: 0431d9acbaaa84d4fb1b3826548f1b7a,
     type: 3}
   childAsteroidCount: 2
   noCollisionTime: 1

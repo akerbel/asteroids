@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &172159932752763977
+--- !u!1001 &2668249877856670497
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: -4667069946965498515, guid: 9be3c560d34899b4aacb8f569e1d49b2,
         type: 3}
       propertyPath: m_Radius
-      value: 0.3
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 409630959008771192, guid: 9be3c560d34899b4aacb8f569e1d49b2,
         type: 3}
@@ -71,23 +71,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 980048a29e1c34c40adea1234dfca7fc,
+      objectReference: {fileID: 21300000, guid: a6f76b7c6ae8648478884b5212c782e0,
         type: 3}
     - target: {fileID: 409630959008771198, guid: 9be3c560d34899b4aacb8f569e1d49b2,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid_1_middle
+      value: Asteroid_1_small
       objectReference: {fileID: 0}
     - target: {fileID: 2937547894081933135, guid: 9be3c560d34899b4aacb8f569e1d49b2,
         type: 3}
       propertyPath: childAsteroidCount
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2937547894081933135, guid: 9be3c560d34899b4aacb8f569e1d49b2,
-        type: 3}
-      propertyPath: childAsteroidPrefab
-      value: 
-      objectReference: {fileID: 2353352973844234079, guid: 84c454608d5b0374baaa3aeb1a7d390a,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be3c560d34899b4aacb8f569e1d49b2, type: 3}
