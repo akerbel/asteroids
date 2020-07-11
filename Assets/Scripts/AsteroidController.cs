@@ -26,7 +26,10 @@ public class AsteroidController : MonoBehaviour
             BulletMoving movingObject = other.GetComponent<BulletMoving>();
 
             if (movingObject != null) {
-                StartCoroutine(movingObject.Hit(0));
+
+                // If not to destroy the bullet right now, 
+                // it will trigger child asteroids.
+                Destroy(movingObject.gameObject);
 
                 float posX = transform.position.x;
                 float posY = transform.position.y;

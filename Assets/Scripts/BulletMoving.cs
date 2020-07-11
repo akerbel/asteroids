@@ -24,10 +24,13 @@ public class BulletMoving : MonoBehaviour
         Vector2 newVector = new Vector2(0, speed * Time.deltaTime);
         transform.Translate(newVector);
 
-        sceenEdgeDestroy();
+        screenEdgeDestroy();
     }
 
-    private void sceenEdgeDestroy()
+    /**
+     * Destroy the bullet, when it reach the screen edge.
+     */
+    private void screenEdgeDestroy()
     {
         if ((transform.position.y > ((verticalSize / 2) + 1)) ||
            (transform.position.y < -((verticalSize / 2) + 1)) ||
@@ -36,14 +39,6 @@ public class BulletMoving : MonoBehaviour
         ) {
             Destroy(gameObject);
         }
-    }
-
-    public IEnumerator Hit(float time = 1.0f)
-    {
-        speed = 0f;
-        animator.SetBool("hit", true);
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
     }
 
 }
