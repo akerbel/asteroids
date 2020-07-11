@@ -82,9 +82,21 @@ public class PlayerController : MonoBehaviour
 
             HpText.text = hp.ToString();
             if (hp <= 0) {
-                Destroy(gameObject);
+                StartCoroutine(BlowAnimation());
             }
         }
+    }
+
+    IEnumerator BlowAnimation(float time = 1.0f)
+    {
+        GetComponent<Animator>().SetBool("hit", true);
+
+        // Player blow sprites are too small.
+        // This will make them bigger.
+        transform.localScale = new Vector3(4,4,1);
+
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 
 }

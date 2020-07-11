@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1468763127}
   - component: {fileID: 1468763128}
   m_Layer: 0
-  m_Name: PlayerBlows
+  m_Name: HitBlows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5354,7 +5354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -17, y: 0}
   m_SizeDelta: {x: 30, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594655927
@@ -5522,6 +5522,7 @@ GameObject:
   - component: {fileID: 1847103543}
   - component: {fileID: 1847103544}
   - component: {fileID: 1847103542}
+  - component: {fileID: 1847103548}
   - component: {fileID: 1847103545}
   - component: {fileID: 1847103547}
   - component: {fileID: 1847103546}
@@ -10388,6 +10389,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!95 &1847103548
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847103539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c684d44a231e6346800740c2db3477a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1905920258
 GameObject:
   m_ObjectHideFlags: 0
