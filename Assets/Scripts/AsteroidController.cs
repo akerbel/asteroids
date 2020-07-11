@@ -13,11 +13,18 @@ public class AsteroidController : MonoBehaviour
 
     public bool active = true;
 
+    public int hp = 3;
+    private int maxHp;
+    [SerializeField] private ParticleSystem particalSystem;
+    [SerializeField] private ParticleSystem hitBlows;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(0, 0, direction);
         StartCoroutine(NoCollision(noCollisionTime));
+        hitBlows.Stop();
+        maxHp = hp;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,27 +38,49 @@ public class AsteroidController : MonoBehaviour
                 // it will trigger child asteroids.
                 Destroy(movingObject.gameObject);
 
-                float posX = transform.position.x;
-                float posY = transform.position.y;
-                active = false;
-                StartCoroutine(Hit());
+                hp -= 1;
+                HitEffects();
 
-                if (childAsteroidCount > 0) {
-                    for (int i = 0; i < childAsteroidCount; i++) {
-                        GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
-                        childAsteroid.transform.position = new Vector2(posX, posY);
-                        Vector2 vector = new Vector2(
-                            Random.Range(-500, 500),
-                            Random.Range(-500, 500)
-                        );
-                        childAsteroid.GetComponent<Rigidbody2D>().AddForce(vector);
-                    }
+                if (hp <= 0) {
+                    Crush();
                 }
             }
         }
     }
 
-    IEnumerator Hit(float time = 1.0f)
+    private void HitEffects(int particlesCount = 1000)
+    {
+        hitBlows.Emit(particlesCount);
+        var emission = particalSystem.emission;
+        emission.rateOverTime = (maxHp - hp) * 50;
+        var main = particalSystem.main;
+        main.simulationSpeed = (maxHp - hp + 1);
+    }
+
+    /**
+     * Crush the asteroid to child asteroids
+     */
+    private void Crush()
+    {
+        float posX = transform.position.x;
+        float posY = transform.position.y;
+        active = false;
+        StartCoroutine(BlowAnimation());
+
+        if (childAsteroidCount > 0) {
+            for (int i = 0; i < childAsteroidCount; i++) {
+                GameObject childAsteroid = Instantiate(childAsteroidPrefab) as GameObject;
+                childAsteroid.transform.position = new Vector2(posX, posY);
+                Vector2 vector = new Vector2(
+                    Random.Range(-500, 500),
+                    Random.Range(-500, 500)
+                );
+                childAsteroid.GetComponent<Rigidbody2D>().AddForce(vector);
+            }
+        }
+    }
+
+    IEnumerator BlowAnimation(float time = 1.0f)
     {
         GetComponent<Animator>().SetBool("hit", true);
         yield return new WaitForSeconds(1);
