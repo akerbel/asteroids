@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject weaponPrefab;
 
     [SerializeField] private ParticleSystem particalSystem;
+    [SerializeField] private ParticleSystem playerBlows;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if ((collision.collider.tag == "Asteroid") && 
             (collision.collider.GetComponent<AsteroidController>().active)) {
             hp -= 1;
+            playerBlows.Emit(1000);
 
             HpText.text = hp.ToString();
             if (hp <= 0) {
@@ -84,4 +86,5 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 }
