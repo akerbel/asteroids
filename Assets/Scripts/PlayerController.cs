@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 0.0f;
 
+    public int hp = 3;
+
+    [SerializeField] private Text HpText;
     [SerializeField] private GameObject weaponPrefab;
 
     [SerializeField] private ParticleSystem particalSystem;
@@ -18,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
         particalSystem.Stop();
+        HpText.text = hp.ToString();
     }
 
     void FixedUpdate()
@@ -69,9 +74,14 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Asteroid") {
-            Debug.Log(collision.collider.name);
-            Destroy(gameObject);
+        if ((collision.collider.tag == "Asteroid") && 
+            (collision.collider.GetComponent<AsteroidController>().active)) {
+            hp -= 1;
+
+            HpText.text = hp.ToString();
+            if (hp <= 0) {
+                Destroy(gameObject);
+            }
         }
     }
 }
