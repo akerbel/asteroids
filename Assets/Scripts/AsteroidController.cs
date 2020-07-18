@@ -43,6 +43,7 @@ public class AsteroidController : MonoBehaviour
 
                 if (hp <= 0) {
                     Crush();
+                    ScoreController.AddScore(maxHp * 100);
                 }
             }
         }
